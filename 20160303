@@ -1,0 +1,68 @@
+### Python assignment01
+
+two_to_the_48th_power = 0
+five_to_the_16th_power = 0
+### START YOUR CODE HERE ###
+
+two_to_the_48th_power = 2**(48)
+five_to_the_16th_power = 5**(16)
+
+#### END YOUR CODE HERE ####
+print '2 to the 48th power:',two_to_the_48th_power
+print '5 to the 16th power:',five_to_the_16th_power
+
+A = B = 0
+### START YOUR CODE HERE ###
+A = 812057129672/13769107
+B = 812057129672%13769107
+
+#### END YOUR CODE HERE ####
+print 'quotient:',A
+print 'reminder:',B
+
+A_over_B = complex(0.,0.)
+### START YOUR CODE HERE ###
+A = 1+3j
+B = 5+7j
+A_over_B = A/B
+
+#### END YOUR CODE HERE ####
+print 'value:',A_over_B
+
+x = 12.3
+y = 4.56
+func = 0.
+### START YOUR CODE HERE ###
+func = ((x**(y)+y**(x))**0.5)/((x**(y))**0.5+(y**(x))**0.5)
+
+#### END YOUR CODE HERE ####
+print 'value:',func
+
+pattern = '+--+     +--+\n' +'|  |     |  |\n'+ '+--+--+  +--+--+\n'+'   |  |     |  |\n'+'   +--+--+  +--+--+\n'+'      |  |     |  |\n'+'      +--+     +--+ \n'
+
+print pattern
+
+numbers = '1'+'2'*2+'3'*3+'4'*4+'5'*5+'6'*6+'7'*7+'8'*8+'9'*9
+
+print numbers
+
+sum_of_series = 0
+### START YOUR CODE HERE ###
+
+for n in range(1,11):
+    sum_of_series += n**(n)
+
+#### END YOUR CODE HERE ####
+print 'value:', sum_of_series
+
+sum_of_series = 0.
+### START YOUR CODE HERE ###
+
+for n in range(1,101):
+    if n % 2 == 0.:
+        sum_of_series -= 1/float(n)
+    else:
+        sum_of_series += 1/float(n)
+
+#### END YOUR CODE HERE ####
+print 'value:', sum_of_series
