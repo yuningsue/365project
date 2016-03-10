@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+class aBox  {
+	
+	int length;
+	int width;
+	int height;
+	
+	public void set(int a,int b,int c){
+		if(a>0 && b>0 && c>0){
+			length=a;
+			width=b;
+			height=c;
+			output();
+		}else{
+			System.out.println("error");
+		}
+	}
+	private int volume(){
+		return length*width*height;
+	}
+	private int surfaceArea(){
+		return 2*(length*width)+2*(length*height)+2*(width*height);
+	}
+
+	public void output(){
+		System.out.println("Surface ="+surfaceArea()+" Volume ="+volume());
+	}
+}
+public class Box {
+	public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int a,b,c;
+        System.out.print("Height");  
+        a=input.nextInt();
+        System.out.print("Length");  
+        b=input.nextInt();
+        System.out.print("Width8");  
+        c=input.nextInt();
+        aBox box=new aBox();
+        box.set(a,b,c);
+		
+	}
+}
