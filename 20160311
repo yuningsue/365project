@@ -1,0 +1,30 @@
+package bank;
+
+public class bank {
+ int balance;
+ 
+public static void main(String[] args) {
+  bank demandDepositAcc = new bank(1000);
+  demandDepositAcc.deposit(500);
+  demandDepositAcc.withdraw(300);
+  System.out.println("Balance：" + demandDepositAcc.inquiry());
+ }
+
+ 
+ bank(int deposit){
+  balance = deposit;
+ }
+ 
+ public void deposit(int money) {
+  balance += money;
+ }
+ 
+ public void withdraw(int money){
+  balance -= money;
+ }
+
+ public int inquiry() {
+  return balance;
+ }
+ 
+}
