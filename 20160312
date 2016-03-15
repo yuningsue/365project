@@ -1,0 +1,57 @@
+#include <stdlib.h>
+#include <iostream>
+#include <time.h>
+
+using namespace std;
+
+int main ()
+{
+	int dice1, dice2;
+	int count1[11]= {0}, count2[11]={0}, count3[11]={0};
+	int k, sum1, sum2, sum3;
+
+	srand(time(0));  //©I•s∂√º∆
+
+	for (int i=0; i< 1000; i++)  // roll the dice 100 times
+	{
+		dice1 = rand() % 6 +1;
+		dice2 = rand() % 6 +1;
+		sum1 = dice1+ dice2;
+		count1[sum1-2]++;  //array value ranges from 2~12 but the target value ranges from 1~10
+	}
+	
+	for (int j=0; j<11;j++)
+	{
+		cout <<"Count in 1000 times = " <<count1 [j] << endl;
+	}
+
+		for (int i=0; i< 10000; i++)
+	{
+		dice1 = rand() % 6 +1;
+		dice2 = rand() % 6 +1;
+		sum2 = dice1+ dice2;
+		count2[sum2-2]++;  //array value ranges from 2~12 but the target value ranges from 1~10
+	}
+			
+	for (int j=0; j<11;j++)
+	{
+		cout <<"Count in 10000 times = " <<count2 [j] << endl;
+	}
+
+			for (int i=0; i< 100000; i++)
+	{
+		dice1 = rand() % 6 +1;
+		dice2 = rand() % 6 +1;
+		sum3 = dice1+ dice2;
+		count3[sum3-2]++;  //array value ranges from 2~12 but the target value ranges from 1~10
+	}
+				
+	for (int j=0; j<11;j++)
+	{
+		cout <<"Count in 100000 times = " <<count3 [j] << endl;
+	}
+
+
+	system("pause");
+	return 0;
+}
