@@ -1,0 +1,173 @@
+/* HW Game of life */
+
+#include "stdafx.h"
+#include <stdlib.h>
+#include <iomanip>
+#include <iostream>
+#include "consola.h"
+
+using namespace std;
+
+const int row = 20, column = 20;
+void selection(int [row][column] , int [row][column]);
+void draw(int a[row][column]);
+
+int main()
+{
+        int a[row][column]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  };
+		int life[row][column] = {0};
+		int generation,choice,x;
+        int b, c;
+
+        cout<<"Conway's Game of Life"<<endl;
+        cout<<"You can directly type 1 to start a initial matrix created by the programmer"<<endl;
+        cout<<"Or you can type 2 to create your own matrix"<<endl;
+        cin>>choice;
+        system("cls");
+        if(choice==1)
+        {
+                cout << "How many generation you'd like to perform:";
+                cin >> generation;
+                system("cls");
+        }
+        else if(choice==2)
+        {
+			    cout << "Enter the times of generation you want to run :"; 
+                cin >> generation;
+                cout <<"pleasee enter an 20 x 20 matrix"<< endl<< "0 means no cell, 1 means a live cell"<< endl;
+                for(b = 0; b < 20; b++)
+                {
+                        for(c = 0; c < 20; c++) 
+                        {
+                                cin >> a[b][c];// let the user type in his/her own matrix
+                        }
+                }
+
+	       for(int i=0; i<generation; i++)  // run the loop to to simulate the Game of Life for a 20x20 world
+            {
+                cout<<"The"<<i+1<<" generation"<< endl;
+                selection(a, life);//call fuction
+                draw(a);// call function to draw the a matrix inputed by the user
+                system("cls");
+                for(int x = 0; x < row; x++)//run the loop to replace old matrix with new one
+                {
+                        for(int y = 0; y < column; y++) 
+                        {
+                                a[x][y] = life[x][y];
+                        }
+                }
+
+        }
+        system("pause");
+        return 0;
+
+        }
+      
+
+        for(int i=0; i<generation; i++) // if the user didn't create his/her own matrix, use the initial one to run generation
+        {
+                cout<<"("<<i+1<<")"<<endl;
+                selection(a, life);
+                draw(life);
+                system("cls");
+                for(int x = 0; x < row; x++)
+                {
+                        for(int y = 0; y < column; y++)
+                        {
+                                a[x][y] = life[x][y];
+                        }
+                }
+
+        }
+        system("pause");
+        return 0;
+}
+
+
+void selection(int a[row][column], int life[row][column])
+{
+        int x,y,i,j,count=0;
+        for(x=0;x<20;x++)
+        {
+                for(y=0;y<20;y++)
+                {
+                        for(i=(x-1); i<=(x+1); i++) // ΩTª{•™•kæF©~
+                        {
+                                for(j=(y-1);j<=(y+1);j++) //ΩTª{§W§U
+                                {
+
+                                 if((i<0)||(i>=row)||(j<0)||(j>=column)) //ΩTª{¨Oß_¶b√‰√‰
+                                                continue;
+                                        else if(a[i][j]==1)  //≠p∫‚¶≥¥X≠”¨°≤”≠M¶b™˛™Ò
+                                               count++;
+                                }
+                        }
+
+                        if(a[x][y] == 1)
+                                count--;
+
+                        switch (count)  //ΩTª{≥Ã´·¶≥¥X≠”≤”≠M¶bÆ«√‰§Œ§¿ßOπÔ¿≥™∫±°™p
+                        {
+                        case 0:
+                        case 1:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                                life[x][y]=0;
+                                break;//rule 1 & 2
+                        case 2:
+                                life[x][y]=a[x][y];//rule 3
+                                break;
+                        case 3:
+                                life[x][y]= 1;// rule 4
+                                break;
+                        }
+                        count=0;// ≠´∑s≠p∫‚
+                }
+        }
+}
+
+void draw(int a[row][column])
+{
+        int i,j;
+        for(i = 0; i < row; i++)
+        {
+                for(j = 0; j < column; j++)
+                {
+                        if(a[i][j]==1)
+                        {
+
+                                cout << a[i][j];
+                        }
+                        else if(a[i][j]==0)
+                        {
+                                cout << a[i][j];
+                        }
+                }
+                cout << endl;
+        }
+
+        system("pause");
+        cout<<endl;
+}
