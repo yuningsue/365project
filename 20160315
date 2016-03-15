@@ -1,0 +1,55 @@
+/*HW Magic Square */
+
+#include <iostream>   
+#include <stdlib.h>   
+#define max 15  
+
+using namespace std;
+
+int matrix[max][max];   
+
+int main()   
+{   
+    int i,j,x,y,temp,n;  
+
+        cout<<"Enter an odd number:"<< endl;   
+        cin>>n;   
+
+
+    for(i=0;i<n;i++)   
+        for(j=0;j<n;j++)   
+        matrix[i][j]=0;//initialize matirx    
+        matrix[0][(n-1)/2]=1;//put 1 to the middle of the first row   
+        temp=2;   
+        i=0;
+		j=(n-1)/2;  // to record the location of each number 
+        while(temp<=n*n)   
+        {   
+            x=(i-1)%n; 
+            y=(j-1)%n;    
+            if(x<0)x=n-1;   // ≠Yx∂WπL∞}¶C•k§ËΩd≥Ú,¥N≤æ®Ï≥Ã•™√‰  
+            if(y<0)y=n-1;   // ≠Yy∂WπL∞}¶C§W§ËΩd≥Ú,¥N≤æ®Ï≥Ã§U≠±
+
+            if(matrix[x][y]!=0)  
+                i=(i+1)%n; // if there's already occupied, locates it to the next row
+            else   
+            {   
+                i=x; //´¸©w¶Ï∏m  
+                j=y;   
+            }   
+            matrix[i][j]=temp;   
+            temp++;   
+        }   
+        cout<<n<<" * "<<n<<endl<<endl;   
+
+        for(i=0;i<n;i++)   
+        {   
+            for(j=0;j<n;j++)   
+            {   
+                cout<<matrix[i][j]<<"\t";   
+            }   
+            cout<<endl;   
+        }   
+        system("pause");   
+		return 0;
+}   
