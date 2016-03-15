@@ -1,0 +1,53 @@
+#include<iostream>
+#include<iomanip>
+
+
+using namespace std;
+void bubbleSort(void);   // function prototype
+const int NUMEL = 6;  
+int a[6][2] = {{1001, 62}, {949, 85}, {1050, 33} ,{867,125}, {346, 59}, {1025, 105}};
+
+int main()
+{
+int x;
+
+bubbleSort();  //call function
+	cout << "Part No."  << "  Quantity" << endl;
+for(x=0; x< NUMEL; x++)  //¶^∂«º∆≠»
+	cout <<setw(6)<< a[x][0] 
+         <<setw(12)<< a[x][1] <<endl ;
+
+
+system("pause");
+return 0;
+}
+
+void bubbleSort (void)  // function detail by bubblesort
+{
+	 int i, j, k, temp;
+	for (k=1; k< NUMEL; k++)  //•˝§Ò≤ƒ§@Ω¸
+	{
+		for (i =0; i < NUMEL-k; i++) //®C¶∏±∆ß«ßÛ∞ ßπ≤¶´·,§U§@¶∏™∫±∆ß«Ωd≥Ú∑|¡Y§p®ÏNUMEL-k
+		{
+			for (j=0; j<1; j++)   // swap
+				if (a[i][1]<a[i+1][1]) //©T©w≤ƒ§GƒÊ®Áº∆ a[i][1]
+				{
+				temp=a[i][j];
+				a[i][j]=a[i+1][j];
+				a[i+1][j] =temp;
+
+				temp=a[i][j+1];
+				a[i][j+1]=a[i+1][j+1];
+				a[i+1][j+1] =temp;
+				}
+			//	else 
+				//	break;
+		}
+
+
+	}
+	return void();
+	
+
+}
+
