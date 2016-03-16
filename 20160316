@@ -1,0 +1,44 @@
+package shop;
+
+import javax.swing.*;
+import java.lang.*;
+
+class cashier
+{
+       public static void main(String args[])
+       {
+             String inputA = JOptionPane.showInputDialog("Price of goods: ");
+             String inputB = JOptionPane.showInputDialog("Cash: ");
+             Integer price = Integer.parseInt(inputA);
+             Integer cash = Integer.parseInt(inputB);
+             int total=0,sum=0;
+             String answer = "null";
+             if (price > cash)
+                 answer = "Not enough cash received.";
+            else
+                 total = cash - price;
+            Change currency = new Change();
+            currency.money(total);
+      }
+}
+
+ 
+class Change
+{
+      static void money(int total)
+      {
+           int thousand=0,fiveHundred=0,oneHundred=0,fifty=0,ten=0,five=0,one=0;
+           thousand = total/1000;
+           fiveHundred = ((total%1000)/500);
+           oneHundred = (((total%1000)%500)/100);
+           fifty = (((total%1000)%500)%100/50);
+           ten = (((((total%1000)%500)%100)%50)/10);
+           five = ((((((total%1000)%500)%100)%50)%10)/5);
+           one = ((((((total%1000)%500)%100)%50)%10)%5/1);
+           String change;
+           change = "1000: "+thousand+"\n500:   "+fiveHundred+"\n100:   "+oneHundred+"\n50:     "+fifty+"\n10:    "+ten+"\n5:      "+five+"\n1:     "+one+"\ntotal:  "+total+"\nNTD";
+           JOptionPane.showMessageDialog(null, change);
+           System.exit(0);
+      }
+}
+
