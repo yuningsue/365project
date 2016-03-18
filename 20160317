@@ -1,0 +1,6 @@
+## python practice 
+alpha = map(chr,range(ord('A'),ord('Z')+1))
+alpha.extend(alpha)
+
+for n in xrange(0,27):
+    print ''.join(alpha[n:n+26])
