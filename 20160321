@@ -1,0 +1,76 @@
+/* Prisoner's dilemma simple practice */
+
+
+import java.util.Scanner;
+
+
+public class Main
+{
+
+/**
+ * @param args
+ */
+public static void main(String[] args)
+{
+Scanner cin = new Scanner(System.in);
+while(true)
+{
+System.out.println("1st prisoner : Confess or Betray?");
+String in_1 = cin.next();
+while(!(in_1.equals("confess")||in_1.equals("betray")))
+{
+System.out.println("please enter again");
+in_1 = cin.next();
+}
+System.out.println("2nd prisoner : Confess or Betray?");
+String in_2 = cin.next();
+while(!(in_2.equals("confess")||in_2.equals("betray")))
+{
+System.out.println("please enter again");
+in_2 = cin.next();
+}
+
+int score_1 = 0;
+int score_2 = 0;
+int s1 = 0; 
+int s2 = 0;
+
+if(in_1.equals("betray")&&in_2.equals("confess"))
+{
+s1 = 5;
+}
+else if(in_2.equals("betray")&&in_1.equals("confess"))
+{
+s2 = 5;
+}
+else if(in_1.equals("confess")&&in_2.equals("confess"))
+{
+s1 = s2 =3;
+}
+else
+{
+s1 = s2 = 1;
+}
+
+score_1 += s1;
+score_2 += s2;
+
+if (s1>s2)
+{
+    System.out.println("Winner is the first prisoner");
+}
+else if (s1==s2)
+{
+    if (s1>1)
+    System.out.println("They are both released");
+    else
+        System.out.println("They are both sent to jail");
+}
+else
+    System.out.println("Winner is the second prisoner");
+    System.exit(0);
+
+}
+}
+
+}
