@@ -11,4 +11,17 @@ def days_since_special_relativity_paper(year,month,day):
 
 #### END YOUR CODE HERE ####
     return days
+    
+#### 
+import random
+import string
+
+def password_generator():
+    password = ''
+### START YOUR CODE HERE ###
+    s=string.lowercase+string.digits+string.uppercase
+    password=''.join(random.sample(s,10))
+
+#### END YOUR CODE HERE ####
+    return password
 
