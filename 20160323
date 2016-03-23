@@ -1,0 +1,14 @@
+/* python practice */
+import datetime
+
+def days_since_special_relativity_paper(year,month,day):
+    days = 0
+### START YOUR CODE HERE ###
+    day = datetime.date(year,month,day)
+    firstday = datetime.date(1905,9,26)
+    days = day-firstday
+    days = days.days
+
+#### END YOUR CODE HERE ####
+    return days
+
