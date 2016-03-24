@@ -1,0 +1,39 @@
+/* Java assignment -- Stack, Calculator */ 
+import java.util.Stack;
+
+public class Calculator {
+
+    public Double ans(String e){
+        Stack<String> x = new Stack<>();
+        Stack<Double> y = new Stack<>();
+        String[] input = e.split("\\s");
+        for(int j=0;j<input.length;j++){
+            String i = input[j];
+            if (i.equals("(")) 
+                continue;
+            else if (i.equals("+")) 
+                x.push(i);
+            else if (i.equals("-")) 
+                x.push(i);
+            else if (i.equals("*")) 
+                x.push(i);
+            else if (i.equals("/")) 
+                x.push(i);
+            else if (i.equals(")"))
+            {
+                String z = x.pop();
+                if (z.equals("+")) 
+                    y.push(y.pop() + y.pop());
+                else if (z.equals("-")) 
+                    y.push(-y.pop() + y.pop());
+                else if (z.equals("*")) 
+                    y.push(y.pop() * y.pop());
+                else if (z.equals("/")) 
+                    y.push(1/y.pop()*y.pop());
+            }
+            else 
+                y.push(Double.parseDouble(i));
+        }
+        return y.pop();
+    }
+}
