@@ -1,0 +1,26 @@
+import java.awt.*;
+import java.awt.event.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("practice");
+        frame.addWindowListener(new Main1());
+        frame.setLayout(new FlowLayout());
+         
+        Label label = new Label("Practice");
+        Font font = new Font(Font.MONOSPACED, Font.PLAIN, 40);
+        label.setFont(font);
+        label.setForeground(Color.RED);
+        frame.add(label);
+         
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
+ 
+class Main1 extends WindowAdapter {
+    public void windowClosing(WindowEvent e) {
+        System.exit(0);
+    }
+}
+ 
