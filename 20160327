@@ -1,0 +1,16 @@
+### python practice
+
+def legendre(n, x):
+### IMPLEMENT YOUR CODE BELOW ###
+    if n == 0:
+        x = 1.
+    elif n ==1:
+        x = x
+    elif n==2:
+        x=(3*(x**2)-1)/2.
+    elif n==3:
+        x=((5*(x**3))-3*x)/2.
+    else:
+        x=((2*(n-1)+1)*x*legendre((n-1),x)-(n-1)*legendre(n-2,x))/n
+    return x
+
