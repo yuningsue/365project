@@ -1,7 +1,24 @@
+### python practice // ask the 'z' problem ###  
+
+import string
+
 def rotate_characters(input):
     output = ''
 ### START YOUR CODE HERE ###
-
+    vals = string.letters
+    for i in input:
+        if i in vals:
+            c = ord(i)+1
+            if i == 'z':
+                output += 'a'
+            elif i == 'Z':
+                output += 'A'
+            elif ord(i) != c:
+                b = chr(c)
+                output += b 
+        else:
+            output += i
 
 #### END YOUR CODE HERE ####
     return output
+
