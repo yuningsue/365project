@@ -1,0 +1,7 @@
+def rotate_characters(input):
+    output = ''
+### START YOUR CODE HERE ###
+
+
+#### END YOUR CODE HERE ####
+    return output
