@@ -1,0 +1,11 @@
+def insert_sum_between_two_digits(input):
+    output = ''
+    a = ''
+    for i in range(4):
+### START YOUR CODE HERE ###
+        for j in range(15):
+            a = sum([int(x) for x in input[j:j+1]])
+            input = str(a).join(x for x in input)
+            output = input
+#### END YOUR CODE HERE ####
+    return output
