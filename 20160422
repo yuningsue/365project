@@ -1,0 +1,17 @@
+
+code = 'V jnf greevoyr va Ratyvfu. V pbhyq abg fgnaq gur fhowrpg. Vg frrzrq gb zr evqvphybhf gb jbeel nobhg jurgure lbh fcryyrq fbzrguvat jebat be abg, orpnhfr Ratyvfu fcryyvat vf whfg n uhzna pbairagvba - vg unf abguvat gb qb jvgu nalguvat erny, nalguvat sebz angher. Evpuneq C. Srlazna'
+
+decoded_content = ''
+
+### START YOUR CODE HERE ###
+
+from string import maketrans
+
+intab = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+outtab = 'nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM'
+trantab = maketrans(intab, outtab)
+
+decoded_content = code.translate(trantab)
+
+#### END YOUR CODE HERE ####
+print decoded_content
