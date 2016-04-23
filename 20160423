@@ -1,0 +1,17 @@
+def shortest_path(start, finish)
+    maxint = (2**(0.size * 8 -2) -1)
+    distances = {}
+    previous = {}
+    nodes = PriorityQueue.new
+    
+    @vertices.each do | vertex, value |
+        if vertex == start
+            distances[vertex] = 0
+            nodes[vertex] = 0
+        else
+            distances[vertex] = maxint
+            nodes[vertex] = maxint
+        end
+        previous[vertex] = nil
+    end
+end
